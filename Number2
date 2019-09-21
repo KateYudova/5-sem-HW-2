@@ -1,0 +1,53 @@
+def hashh(l, k):
+    sum = 0
+    for i in range (0,k):
+        sum = ord(l[i]) - ord('a') + sum + 10
+    return sum % 100
+max = 0
+t = 0
+h = 0
+ind = 0
+indmax = 0
+a = [[] for i in range(100)]
+k = input()
+while len(k)>0:
+    p = k.split()
+    for i in range(len(p)):
+        a[hashh(p[i], len(p[i]))].append(p[i])
+    k = input()
+for j in range(0, len(a)):
+    a[j] = sorted(a[j])
+for j in range(0, len(a)):
+    if len(a[j])-1 == 0:
+            if 1 == max :
+                t = 1
+            elif 1 > max :
+                t = 0
+                max = 1
+                indmax = a[j][0]
+    for i in range(0, len(a[j])-1):        
+        if a[j][i] != a[j][i+1] and h == 1:
+            ind = a[j][i]
+        if a[j][i] == a[j][i+1] :
+            ind = a[j][i]
+            h = h+1
+        if a[j][i] != a[j][i+1] :
+            if h == max:
+                h = 0
+                t = 1
+            elif h > max :
+                t = 0
+                max = h
+                h = 0
+                indmax = ind
+    if h == max :
+        t = 1
+    if h > max:
+        t = 0
+        max = h
+        indmax = ind
+    h = 0
+if t == 0:
+    print(indmax)
+else :
+    print('-')
