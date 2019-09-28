@@ -1,9 +1,17 @@
-def Number(a,i): #функция для преобразования строчной цифры в целое число
-    c = a[i]
+"""
+Home Work 2, exercise 1.
+"""
+def number(g, y):
+    """
+    string number -> integer
+    """
+    c = g[y]
     num = ord(c)-ord('0')
     return num
-
-def Tel (L, num):
+def tel(L, num):
+    """
+    add letters and delete old elements
+    """
     t = len(L)
     for j in range(t):
         if num == 1:
@@ -44,17 +52,19 @@ def Tel (L, num):
             L.append(L[j] + "z")
         elif num == 0:
             L.append(L[j] + " ")
-    for j in range(t): #удаляем то, что стояло до добавления еще одного символа в последовательность
+    for j in range(t):
         L.pop(0)
     return L
-def Pr(L): #печатаем наш список
-    print ('["'," \"".join(L), ' "]', sep = "")
-    
+def pr(L):
+    """
+    print list
+    """
+    print("[\"", " \"".join(L), " \"]", sep = "")
 a = input()
 l = [""]
 i = 0
 while i != len(a):
-    k = Number(a,i) #получаем цифру
-    l = Tel(l, k)  #преобразуем телефонную последовательность
+    k = number(a, i)
+    l = tel(l, k)
     i = i + 1
-Pr(l)
+pr(l)
