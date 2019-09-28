@@ -48,8 +48,7 @@ def Tel (L, num):
         L.pop(0)
     return L
 def Pr(L): #печатаем наш список
-    for j in range (len(L)):
-        print ('\'', L[j], '\'' )
+    print ('["'," \"".join(L), ' "]', sep = "")
     
 a = input()
 l = [""]
