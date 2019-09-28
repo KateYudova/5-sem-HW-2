@@ -1,20 +1,22 @@
-
-a = input() #строка
+"""
+Home Work 2, exercise 1.
+"""
+a = input()
 i = 0
-flag = 0 #совпадает ли строка (флаг)
+flag = 0
 k = 0
-z = 0 #записываем символ из исходной строки в подстроку
-t= '' #подстрока
+z = 0
+t = ''
 while i == 0:
     j = 0
     t = t+a[z]
     z = z+1
-    if len(a)%len(t) == 0 : #если подстроку можно уместить в строке несколько раз целиком
+    if len(a)%len(t) == 0:
         k = 0
-        flag = 1 #пусть нам подходит такая подстрока
-        while j < len(a)//len(t): #сколько раз подстрока влезет в строку
-            for i in range(len(t)) :
-                if t[i] == a[k*len(t) + i]:
+        flag = 1
+        while j < len(a)//len(t):
+            for i in range(len(t)):
+                if t[i] == a[k*len(t)+i]:
                     flag = 1
                 else:
                     flag = 0
@@ -29,8 +31,5 @@ while i == 0:
             break
     if len(t) == len(a):
         k = 1
-        i=1
-        print (k)
-                
-    
-    
+        i = 1
+        print(k)
